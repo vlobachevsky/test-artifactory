@@ -3,15 +3,19 @@
 node {
 
   stage('Build') {
-    checkout([$class: 'GitSCM', 
-        branches: [[name: '*/master']],
-        doGenerateSubmoduleConfigurations: false,
-        extensions: [],
-        submoduleCfg: [],
-        userRemoteConfigs: [[url: 'https://github.com/vlobachevsky/test-artifactory.git']]]
-    )
+    gitCheckout()
     gradlew('build')
   }
+}
+
+def gitCheckout() {
+  checkout([$class: 'GitSCM',
+      branches: [[name: '*/master']],
+      doGenerateSubmoduleConfigurations: false,
+      extensions: [],
+      submoduleCfg: [],
+      userRemoteConfigs: [[url: 'https://github.com/vlobachevsky/test-artifactory.git']]]
+  )
 }
 
 def gradlew(String... args) {
