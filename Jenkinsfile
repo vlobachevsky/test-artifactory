@@ -3,6 +3,6 @@
 node {
 
   stage('Build') {
-    echo 'Hello'
+    sh 'gradlew build'
   }
 }
