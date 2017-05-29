@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 
 node {
-  echo 'Hello'
+
+  stage('Build') {
+    echo 'Hello'
+  }
 }
