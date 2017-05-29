@@ -4,8 +4,7 @@ node {
 
   stage('Build') {
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vlobachevsky/test-artifactory.git']]])
-    
-    //gradlew('build') 
+    gradlew('build') 
   }
 }
 
